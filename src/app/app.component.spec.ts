@@ -1,37 +1,23 @@
-import {
-  ComponentFixture,
-  TestBed
-} from "@angular/core/testing";
+
 import {AppComponent} from "./app.component";
 import { ProductsService} from "./services/products.service";
 import {of} from "rxjs";
 import {MOCK_PRODUCTS} from "./tests/mock";
+import {render, screen} from "@testing-library/angular";
+import {expect} from "vitest";
 
 export class MockProductService {
   public products$ = of(MOCK_PRODUCTS)
 }
 
 describe('app component', () => {
-  let component: ComponentFixture<AppComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [
-        AppComponent,
-        {
-          provide: ProductsService,
-          useClass: MockProductService,
-        },
-      ],
-    }).compileComponents();
+  it('should render the product', async ()  => {
 
-    component = TestBed.createComponent<AppComponent>(AppComponent);
-  });
+    await render(AppComponent, {
+      providers: [{ provide: ProductsService, useClass: MockProductService }],
+    })
 
-  it('should render the product', () => {
-    component.detectChanges();
-    const productTitle: HTMLElement =
-      component.nativeElement.querySelector('h2');
-    expect(productTitle.innerText).toEqual(MOCK_PRODUCTS[0].title);
-  });
-});
+    const productTitle  = screen.getByText(MOCK_PRODUCTS[0].title);
+    expect(productTitle).toBeDefined()
+})});
