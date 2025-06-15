@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import {toSignal} from "@angular/core/rxjs-interop";
 
 export type Product = {
   id: string;

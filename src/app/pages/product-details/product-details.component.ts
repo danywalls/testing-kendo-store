@@ -1,4 +1,4 @@
-import {Component, computed, inject, input} from '@angular/core';
+import {Component, inject, input} from '@angular/core';
 import {ProductsService} from "../../services/products.service";
 import {toObservable} from "@angular/core/rxjs-interop";
 import {switchMap} from "rxjs";
