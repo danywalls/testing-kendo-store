@@ -10,6 +10,14 @@ This repository provides examples of how to write unit tests for Angular service
 ### Running Tests
 1. `npm install` 
 2. `npm test` to execute the unit tests using Karma/Jasmine.
+
+## Project Summary
+This repository provides examples of how to write unit tests for Angular services, specifically focusing on HTTP requests and API interaction.
+
+## How to Run
+### Running Tests
+1. `npm install` 
+2. `npm test` to execute the unit tests using Karma/Jasmine.
 This source code is related to Angular and Kendo Articles.
 
 https://www.telerik.com/blogs/author/dany-paredes
